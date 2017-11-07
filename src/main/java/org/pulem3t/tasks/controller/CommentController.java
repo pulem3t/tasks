@@ -1,3 +1,6 @@
+/**
+ * @author pulem3t
+ */
 package org.pulem3t.tasks.controller;
 
 import java.util.List;
@@ -27,7 +30,6 @@ public class CommentController {
 	@RequestMapping(value="/addComment", method=RequestMethod.POST, consumes = "application/json; charset=utf-8", 
 			produces = "application/json; charset=utf-8")
 	public @ResponseBody String addComment(@RequestBody String json) {
-		
 		JSONObject o = new JSONObject();
 		String id = "";
 		try {
@@ -45,7 +47,6 @@ public class CommentController {
 
 	@RequestMapping(value="/delComment/{id}", method=RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public @ResponseBody String delComment(@PathVariable("id") String id) {
-		
 		JSONObject o = new JSONObject();
 		try {
 			logger.info("COMMENTS: Deleting comment with id = " + id);
@@ -61,7 +62,6 @@ public class CommentController {
 	@RequestMapping(value="/updateComment", method=RequestMethod.POST, consumes = "application/json; charset=utf-8", 
 			produces = "application/json; charset=utf-8")
 	public @ResponseBody String updateComment(@RequestBody String json) {
-		
 		JSONObject o = new JSONObject();
 		try {
 			logger.info("COMMENTS: Updating comment with id = " + new JSONObject(json).getString("id"));
@@ -76,7 +76,6 @@ public class CommentController {
 
 	@RequestMapping(value="/getComment/{id}", method=RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public @ResponseBody String getComment(@PathVariable("id") String id) {
-
 		JSONObject o = new JSONObject();
 		try {
 			Comment comment = commentService.getComment(id);
@@ -104,7 +103,6 @@ public class CommentController {
 
 	@RequestMapping(value="/getComments", method=RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public @ResponseBody String getComments(@PathVariable("taskId") String taskId) {
-
 		JSONObject o = new JSONObject();
 		try {
 			List<Comment> commentList = commentService.getComments(taskId);
@@ -120,7 +118,6 @@ public class CommentController {
 	@RequestMapping(value="/setCommentRating", method=RequestMethod.POST, consumes = "application/json; charset=utf-8", 
 			produces = "application/json; charset=utf-8")
 	public @ResponseBody String setCommentRating(String id, int rating) {
-		
 		JSONObject o = new JSONObject();
 		try {
 			logger.info("COMMENTS: Setting rating for comment with id = " + id);

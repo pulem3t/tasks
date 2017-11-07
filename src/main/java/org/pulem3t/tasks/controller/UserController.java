@@ -29,7 +29,6 @@ public class UserController {
 	@RequestMapping(value="/addUser", method=RequestMethod.POST, consumes = "application/json; charset=utf-8", 
 			produces = "application/json; charset=utf-8")
 	public @ResponseBody String addUser(@RequestBody String json) {
-
 		JSONObject o = new JSONObject();
 		try {
 			String id = userService.addUser(json);
@@ -46,7 +45,6 @@ public class UserController {
 
 	@RequestMapping(value="/delUser/{id}", method=RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public @ResponseBody String delUser(@PathVariable("id") String id) {
-
 		JSONObject o = new JSONObject();
 		o.put("id", id);
 		try {
@@ -62,7 +60,6 @@ public class UserController {
 
 	@RequestMapping(value="/getUser/{id}", method=RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public @ResponseBody String getUser(@PathVariable("id") String id) {
-
 		JSONObject o = new JSONObject();
 		try {
 			User user = userService.getUser(id);
@@ -90,7 +87,6 @@ public class UserController {
 
 	@RequestMapping(value="/getUsers", method=RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public @ResponseBody String getTasks() {
-
 		JSONObject o = new JSONObject();
 		try {
 			List<User> userList = userService.getTasks();
@@ -107,7 +103,6 @@ public class UserController {
 	@RequestMapping(value="/updateUser", method=RequestMethod.POST, consumes = "application/json; charset=utf-8", 
 			produces = "application/json; charset=utf-8")
 	public @ResponseBody String updateUser(@RequestBody String json) {
-
 		JSONObject o = new JSONObject();
 		try {
 			logger.info("USERS: Updating user with id = " + new JSONObject(json).getString("id"));

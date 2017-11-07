@@ -29,7 +29,6 @@ public class TaskController {
 	@RequestMapping(value="/addTask", method=RequestMethod.POST, consumes = "application/json; charset=utf-8", 
 			produces = "application/json; charset=utf-8")
 	public @ResponseBody String addTask(@RequestBody String json) {
-		
 		JSONObject o = new JSONObject();
 		String id = "";
 		try {
@@ -47,7 +46,6 @@ public class TaskController {
 
 	@RequestMapping(value="/delTask/{id}", method=RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public @ResponseBody String delTask(@PathVariable("id") String id) {
-		
 		JSONObject o = new JSONObject();
 		try {
 			logger.info("TASK: Deleting task with id = " + id);
@@ -63,7 +61,6 @@ public class TaskController {
 	@RequestMapping(value="/updateTask", method=RequestMethod.POST, consumes = "application/json; charset=utf-8", 
 			produces = "application/json; charset=utf-8")
 	public @ResponseBody String updateTask(@RequestBody String json) {
-		
 		JSONObject o = new JSONObject();
 		try {
 			logger.info("TASKS: Updating task with id = " + new JSONObject(json).getString("id"));
@@ -78,7 +75,6 @@ public class TaskController {
 
 	@RequestMapping(value="/getLastAddedTasks", method=RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public @ResponseBody String getLastAddedTasks() {
-
 		JSONObject o = new JSONObject();
 		try {
 			List<Task> taskList = taskService.getLastAddedTasks();
@@ -94,7 +90,6 @@ public class TaskController {
 
 	@RequestMapping(value="/getTask/{id}", method=RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public @ResponseBody String getTask(@PathVariable("id") String id) {
-
 		JSONObject o = new JSONObject();
 		try {
 			Task task = taskService.getTask(id);
@@ -121,7 +116,6 @@ public class TaskController {
 
 	@RequestMapping(value="/getTasks", method=RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public @ResponseBody String getTasks() {
-
 		JSONObject o = new JSONObject();
 		try {
 			List<Task> taskList = taskService.getTasks();
@@ -137,7 +131,6 @@ public class TaskController {
 	@RequestMapping(value="/setTaskPriority", method=RequestMethod.POST, consumes = "application/json; charset=utf-8", 
 			produces = "application/json; charset=utf-8")
 	public @ResponseBody String setTaskPriority(String id, int priority) {
-		
 		JSONObject o = new JSONObject();
 		try {
 			logger.info("TASKS: Setting priority for task with id = " + id);
@@ -153,7 +146,6 @@ public class TaskController {
 	@RequestMapping(value="/setTaskStatus", method=RequestMethod.POST, consumes = "application/json; charset=utf-8", 
 			produces = "application/json; charset=utf-8")
 	public @ResponseBody String setTaskStatus(String id, int status) {
-		
 		JSONObject o = new JSONObject();
 		try {
 			logger.info("TASKS: Setting status task with id = " + id);

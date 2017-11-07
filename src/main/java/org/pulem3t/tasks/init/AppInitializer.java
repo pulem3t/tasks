@@ -1,3 +1,6 @@
+/**
+ * @author pulem3t
+ */
 package org.pulem3t.tasks.init;
 
 import javax.servlet.ServletContext;

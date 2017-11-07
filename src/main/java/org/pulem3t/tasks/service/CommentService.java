@@ -27,17 +27,14 @@ public class CommentService {
 	private TaskDAO taskDAO;
 	
 	public List<Comment> getComments(String taskId) {
-		
 		return commentDAO.getComments(taskId);
 	}
 	
 	public Comment getComment(String id) {
-		
 		return commentDAO.getComment(id);
 	}
 	
 	public String addComment(String json) {
-		
 		JSONObject o = new JSONObject(json).getJSONObject("comment");
 		Comment comment = new Comment();
 		comment.setAuthor(userDAO.getUser(o.getString("authorId")));
@@ -56,12 +53,10 @@ public class CommentService {
 	}
 	
 	public void deleteComment(String id) {
-		
 		commentDAO.deleteComment(id);
 	}
 	
 	public void updateComment(String json) {
-		
 		JSONObject o = new JSONObject(json).getJSONObject("comment");
 		Comment comment = new Comment();
 		comment.setId(o.getString("id"));
@@ -82,7 +77,6 @@ public class CommentService {
 	}
 	
 	public void setCommentRating(String id, int rating) {
-		
 		Comment comment = getComment(id);
 		comment.setRating(comment.getRating()+rating);
 		commentDAO.updateComment(comment);

@@ -1,3 +1,6 @@
+/**
+ * @author pulem3t
+ */
 package org.pulem3t.tasks.entry;
 
 import java.util.ArrayList;
@@ -15,37 +18,37 @@ import javax.persistence.Table;
 
 import org.json.JSONObject;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
 @Table(name = "COMMENTS")
+@Data
 public class Comment {
 
 	@Id
 	@Column(name = "ID")
-	@Getter @Setter private String id;
+	private String id;
 	
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@Getter @Setter private User author;
+	private User author;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@Getter @Setter private Task task;
+	private Task task;
 	
 	@Column(name = "TEXT")
-	@Getter @Setter private String text;
+	private String text;
 	
 	@Column(name = "RATING")
-	@Getter @Setter private int rating;
+	private int rating;
 	
 	@ElementCollection
-	@Getter @Setter private List<User> relatedUsers;
+	private List<User> relatedUsers;
 	
 	@Column(name = "CREATEDATE")
-	@Getter @Setter private long createDate;
+	private long createDate;
 	
 	@Column(name = "LASTMODDATE")
-	@Getter @Setter private long lastmodDate;
+	private long lastmodDate;
 	
 	public Comment() {
 		this.id = "";

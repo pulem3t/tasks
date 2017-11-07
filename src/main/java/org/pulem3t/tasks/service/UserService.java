@@ -18,7 +18,6 @@ public class UserService {
 	private UserDAO userDAO;
 	
 	public String addUser(String json) {
-		
 		JSONObject o = new JSONObject(json).getJSONObject("user");
 		User user = new User();
 		user.setAdminRole(o.getBoolean("adminRole"));
@@ -34,22 +33,18 @@ public class UserService {
 	}
 
 	public void delUser(String id) {
-
 		userDAO.deleteUser(id);
 	}
 
 	public User getUser(String id) {
-
 		return userDAO.getUser(id);
 	}
 
 	public List<User> getTasks() {
-
 		return userDAO.getUsers();
 	}
 
 	public void updateUser(String json) {
-
 		JSONObject o = new JSONObject(json).getJSONObject("user");
 		User user = new User();
 		user.setAdminRole(o.getBoolean("adminRole"));
@@ -66,7 +61,6 @@ public class UserService {
 	}
 	
 	public void setUserRole(String id, int role) {
-		
 		User user = userDAO.getUser(id);
 		switch (role) {
 			case 1:

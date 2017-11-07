@@ -1,3 +1,6 @@
+/**
+ * @author pulem3t
+ */
 package org.pulem3t.tasks.entry;
 
 import java.util.ArrayList;
@@ -11,49 +14,49 @@ import javax.persistence.Table;
 import org.json.JSONObject;
 import org.pulem3t.tasks.enums.Role;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
 @Table(name = "USERS")
+@Data
 public class User {
 	
 	@Id
 	@Column(name = "ID")
-	@Getter @Setter private String id;
+	private String id;
 	
 	@Column(name = "FIRSTNAME")
-	@Getter @Setter private String firstName;
+	private String firstName;
 	
 	@Column(name = "LASTNAME")
-	@Getter @Setter private String lastName;
+	private String lastName;
 	
 	@Column(name = "PATRONYM")
-	@Getter @Setter private String patronym;
+	private String patronym;
 	
 	@Column(name = "EMAIL")
-	@Getter @Setter private String email;
+	private String email;
 	
 	@Column(name = "PHONE")
-	@Getter @Setter private String phone;
+	private String phone;
 	
 	@Column(name = "COMPANY")
-	@Getter @Setter private String company;
+	private String company;
 	
 	@Column(name = "ADMINROLE")
-	@Getter @Setter private boolean adminRole;
+	private boolean adminRole;
 	
 	@Column(name = "USERROLE")
-	@Getter @Setter private boolean userRole;
+	private boolean userRole;
 	
 	@Column(name = "SUPPORTROLE")
-	@Getter @Setter private boolean supportRole;
+	private boolean supportRole;
 	
 	@Column(name = "CREATEDATE")
-	@Getter @Setter private long createDate;
+	private long createDate;
 	
 	@Column(name = "LASTMODDATE")
-	@Getter @Setter private long lastmodDate;
+	private long lastmodDate;
 	
 	public User(){
 		this.id = "";

@@ -22,7 +22,6 @@ public class TaskService {
 	
 	
 	public String addTask(String json) {
-		
 		JSONObject o = new JSONObject(json).getJSONObject("task");
 		Task task = new Task();
 		task.setAuthor(userDAO.getUser(o.getString("authorId")));
@@ -37,12 +36,10 @@ public class TaskService {
 	}
 
 	public void delTask(String id) {
-
 		taskDAO.deleteTask(id);
 	}
 
 	public void updateTask(String json) {
-
 		JSONObject o = new JSONObject(json).getJSONObject("task");
 		Task task = new Task();
 		task.setId(o.getString("id"));
@@ -59,29 +56,24 @@ public class TaskService {
 	}
 
 	public List<Task> getLastAddedTasks() {
-
 		return taskDAO.getLastAddedTasks();
 	}
 
 	public  Task getTask(String id) {
-
 		return taskDAO.getTask(id);
 	}
 
 	public List<Task> getTasks() {
-
 		return taskDAO.getTasks();
 	}
 	
 	public void setTaskPriority(String id, int priority) {
-		
 		Task task = getTask(id);
 		task.setPriority(priority);
 		taskDAO.updateTask(task);
 	}
 
 	public void setTaskStatus(String id, int status) {
-		
 		Task task = getTask(id);
 		task.setStatus(status);
 		taskDAO.updateTask(task);
