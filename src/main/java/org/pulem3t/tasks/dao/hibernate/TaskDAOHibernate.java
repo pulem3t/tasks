@@ -18,14 +18,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.pulem3t.tasks.dao.TaskDAO;
+import org.pulem3t.tasks.entry.Comment;
 import org.pulem3t.tasks.entry.Task;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class TaskDAOHibernate implements TaskDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-
 	private Session session;
 	private Transaction tx;
 	private CriteriaBuilder builder;
@@ -41,6 +43,7 @@ public class TaskDAOHibernate implements TaskDAO {
 			tx = session.getTransaction();
 			session.beginTransaction();
 			query = builder.createQuery(Task.class);
+			Root<Task> taskRoot = query.from(Task.class);
 			taskList = session.createQuery(query).getResultList();
 			tx.commit();
 		} catch (Exception e) {

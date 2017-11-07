@@ -18,12 +18,13 @@ import org.hibernate.Transaction;
 import org.pulem3t.tasks.dao.CommentDAO;
 import org.pulem3t.tasks.entry.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class CommentDAOHibernate implements CommentDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
 	private Session session;
 	private Transaction tx;
 	private CriteriaBuilder builder;

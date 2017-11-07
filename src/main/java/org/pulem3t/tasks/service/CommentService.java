@@ -14,7 +14,9 @@ import org.pulem3t.tasks.dao.UserDAO;
 import org.pulem3t.tasks.entry.Comment;
 import org.pulem3t.tasks.entry.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CommentService {
 	
 	@Autowired
