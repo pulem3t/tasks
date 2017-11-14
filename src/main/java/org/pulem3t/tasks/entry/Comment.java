@@ -18,11 +18,13 @@ import javax.persistence.Table;
 
 import org.json.JSONObject;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "COMMENTS")
-@Data
+@Getter
+@Setter
 public class Comment {
 
 	@Id

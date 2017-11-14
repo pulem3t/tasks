@@ -15,11 +15,13 @@ import javax.persistence.Table;
 import org.json.JSONObject;
 import org.pulem3t.tasks.enums.Status;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "TASKS")
-@Data
+@Getter
+@Setter
 public class Task {
 	
 	@Id

@@ -14,11 +14,13 @@ import javax.persistence.Table;
 import org.json.JSONObject;
 import org.pulem3t.tasks.enums.Role;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "USERS")
-@Data
+@Getter
+@Setter
 public class User {
 	
 	@Id
