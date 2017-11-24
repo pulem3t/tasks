@@ -89,7 +89,7 @@ public class UserController {
 	public @ResponseBody String getTasks() {
 		JSONObject o = new JSONObject();
 		try {
-			List<User> userList = userService.getTasks();
+			List<User> userList = userService.getUsers();
 			o.put("users", userList);
 			o.put("success", true);
 		} catch (Exception e) {

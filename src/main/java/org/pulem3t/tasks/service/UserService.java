@@ -40,7 +40,7 @@ public class UserService {
 		return userDAO.getUser(id);
 	}
 
-	public List<User> getTasks() {
+	public List<User> getUsers() {
 		return userDAO.getUsers();
 	}
 
